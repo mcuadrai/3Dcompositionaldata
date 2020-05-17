@@ -1,0 +1,21 @@
+ 
+proc Library_UpdateIndex { libdir } {
+	if ![file exists $libdir/tclIndex] {
+		set doit 1
+	} else {
+		set age [file mtime $libdir/tclIndex]
+		set doit 0
+		foreach file [glob $libdir/*.tcl] {
+			if {[file mtime $file] > $age} {
+				set doit 1
+				break
+			}
+		}
+	}
+	if { $doit } {
+		auto_mkindex $libdir *.tcl
+	}
+ }
+
+Library_UpdateIndex . 
+	

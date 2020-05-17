@@ -1,0 +1,206 @@
+#!/usr/X11/bin/wish -f
+#!/usr/local/bin/tclsh
+#set auto_path "$tk_library/demos $auto_path"
+set ws_src [pwd]
+puts "Auto path dir: $ws_src $auto_path"
+set auto_path "$ws_src $auto_path"
+  set nomarch ""
+  set arch ""
+  set numline 0
+  set ncompo 0
+  set nident 0
+  set aux 0 
+proc inicio {} {
+  global arch ncompo aux 
+# Lectura de cabecera del archivo
+###################################
+if {$arch != ""} {
+   set f [open  $arch r]
+   gets $f line
+   gets $f otra
+    set cont [llength $line]
+    set i 0
+    while {$i < $cont} {
+      set id$i [lindex $otra $i]
+       set caract [string length [set id$i]]
+       set j 0 
+       while {$j<$caract} {
+           set nro [string index [set id$i] $j]
+           if {$nro=="."} {
+                  set aux $i
+                  break
+           } 
+           incr j
+      }
+      if {$nro=="."} {
+            break
+       }
+      incr i
+   }
+   close $f
+   set f [open $arch r]
+   gets $f line
+   set i 0
+   while {$i<$aux} {
+     global ident$i
+     set ident$i [lindex $line $i]
+     
+     incr i
+   }
+   while {$i <= $cont} {
+      global comp$i
+      set comp$i [lindex $line $i]
+      incr i
+   } 
+   close $f
+   global ncompo nident
+   set ncompo [expr $cont - $aux]
+   set nident $aux
+   global nco 
+   set nco [expr $cont-1] 
+  
+   set k 1
+   while {$k<=$nident} {
+      set selid$k 1
+      incr k
+   }
+   set k 1
+   while {$k<=$ncompo} {
+      set selco$k 1
+      incr k
+   }
+
+  set cuentite 1  
+
+  set j $nident
+  while {$j <= $nco} {
+    set vco$j x
+    incr j
+  } 
+}
+frame .mbar -relief raised -bd 3
+pack .mbar -side top -fill x
+global validar
+set validar 0
+wm title . "Software para el Analisis de Datos Composicionales"
+# definiendo el menu principal 
+###############################
+menubutton .mbar.file -text "Archivo" -underline 0 \
+           -menu .mbar.file.menu
+menubutton .mbar.edit -text "Seleccion"  -underline 0 \
+           -menu .mbar.edit.menu
+menubutton .mbar.process -text "Procesos"  -underline 0 \
+           -menu .mbar.process.menu
+menubutton .mbar.utility -text "Utilidad" -underline 0 \
+           -menu .mbar.utility.menu
+menubutton .mbar.help -text "Ayuda" -underline 0 \
+           -menu .mbar.help.menu
+pack .mbar.file .mbar.edit .mbar.process .mbar.utility \
+           -side left
+pack .mbar.help -side right
+
+menu .mbar.file.menu
+ .mbar.file.menu add command -label "Abrir Archivo ..." -underline 0 \
+                             -command abrir-archivo 
+ .mbar.file.menu add command -label "Cerrar" -underline 0 -command {catch {destroy .pla}
+                                                                    catch {destroy .subc}
+                                                                    catch {destroy .amal}
+                                                                    }  
+ .mbar.file.menu add command -label "Guardar" -underline 0 \
+                             -command salvar  
+ .mbar.file.menu add separator  
+ .mbar.file.menu add command -label "Salir" -command {destroy .} -underline 0 
+menu .mbar.edit.menu
+ .mbar.edit.menu add cascade -label "Identificadores" -underline 0 \
+                             -menu .mbar.edit.menu.selec-ident 
+ .mbar.edit.menu add cascade -label "Componentes" -underline 0 \
+                             -menu .mbar.edit.menu.selec-compo
+
+menu .mbar.process.menu
+ .mbar.process.menu add command -label "Subcomposicion" -underline 0 \
+                                -command subcompo 
+ .mbar.process.menu add command -label "Amalgama" -underline 0 \
+                                -command Nro-grup 
+ 
+ .mbar.process.menu add cascade -label "Visualizacion ..." -underline 0 \
+ 				-menu .mbar.process.menu.selec-tipo-visual
+
+menu .mbar.utility.menu
+ .mbar.utility.menu add command -label "Ordenar identificadores" -underline 0 \
+                                -command OrdenarIdent  
+
+menu .mbar.help.menu
+ .mbar.help.menu add command -label "Indice" -underline 0 
+ .mbar.help.menu add command -label "Acerca de la version" -underline 0 \
+                             -command Version 
+
+menu .mbar.edit.menu.selec-ident
+   if {$arch != ""} { 
+     set contador 1 
+     set npos 0
+     while {$npos<$aux} {
+       set etiqueta [set ident$npos] 
+       .mbar.edit.menu.selec-ident add checkbutton -label "$etiqueta" -variable vi$contador
+       incr contador 
+       incr npos
+    } 
+  } 
+
+
+menu .mbar.edit.menu.selec-compo
+   if {$arch != ""} {
+     set contador 1
+     set npos $aux 
+     while {$npos<$cont} {
+	set etiqueta [set comp$npos] 
+        .mbar.edit.menu.selec-compo add checkbutton -label "$etiqueta" -variable vc$npos
+	incr contador 
+	incr npos 
+     }
+    }
+
+
+menu .mbar.process.menu.selec-tipo-visual
+     .mbar.process.menu.selec-tipo-visual add command -label " Datos Composicionales " -command MIPuntosDiagTernario
+     if {$ncompo==4} { 
+       .mbar.process.menu.selec-tipo-visual add command -label " Datos Comp/Volumen " -command modpuntosvol 
+       .mbar.process.menu.selec-tipo-visual add command -label " Volumen " -command Ecparam 
+       .mbar.process.menu.selec-tipo-visual add command -label " Pov-Ray " -command modpPovRay 
+     } else {
+        if {$ncompo==3} {
+            .mbar.process.menu.selec-tipo-visual add cascade -label " Area(s) "  \
+                                                      -menu .mbar.process.menu.selec-tipo-visual.selec-num-area
+       }
+     }
+ 
+ 
+menu .mbar.process.menu.selec-tipo-visual.selec-num-volumen
+     set numvolumen 1
+     while {$numvolumen<=3} {
+        .mbar.process.menu.selec-tipo-visual.selec-num-volumen add command \
+			-label " Volumen $numvolumen " -command "InterfazVolumen $numvolumen" 
+	incr numvolumen 
+     }
+
+menu .mbar.process.menu.selec-tipo-visual.selec-num-area
+     set numarea 1
+     while {$numarea<=3} {
+        .mbar.process.menu.selec-tipo-visual.selec-num-area add command \
+			-label " Area $numarea " -command "InterfazArea $numarea" 
+	incr numarea 
+     }
+
+proc NohaceNada { } { 
+}
+proc dpos w { 
+wm geometry $w +300+30
+wm geometry . 500x400 
+}
+
+dpos .
+
+}
+inicio
+
+
+

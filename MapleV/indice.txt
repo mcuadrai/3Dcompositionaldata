@@ -1,0 +1,64 @@
+Los archivos hecho en el software Maple.
+
+caso1.ms
+caso2.ms
+celipse.ms
+celipso1.ms
+celipso2.ms
+elipso12.ms
+formula2.ms
+formula3.ms
+ubicptet.ms 
+
+
+
+Cálculos para obtener los coeficientes de la ec. general de una elipse
+
+El archivo celipse.ms lee los datos desde un archivo con extensión txt. 
+Este archivo de texto posee un encabezado y los datos composicionales que cumplen
+con la restricción de la suma de las componentes sea igual a 1 y el número de componentes 
+sea igual 3.
+  El celipse.ms da como resultado los coeficientes de la ecuación general de una elipse.
+
+
+
+Cálculos para obtener los valores de la ecuación paramétrica de un elipsoide.
+
+
+El archivo elipso12.ms lee los datos desde un archivo con extensión txt. 
+Este archivo de texto posee un encabezado y los datos composicionales que cumplen
+con la restricción de la suma de las componentes sea igual a 1 y el número de componentes 
+sea igual 4.
+  El elipso12.ms da como resultado los valores necesarios para la ecuación paramétrica de
+ un elipsoide.	Los archivos  caso1.ms y caso2.ms son ejemplos. 
+
+
+
+
+Otros cálculos
+
+El archivo celipso1.ms lee los datos desde un archivo con extensión txt. 
+Este archivo de texto posee un encabezado y los datos composicionales que cumplen
+con la restricción de la suma de las componentes sea igual a 1 y el número de componentes 
+sea igual 4.
+  El celipso1.ms da como resultado los valores necesarios para la ecuación general de
+ un elipsoide.
+
+El archivo celipso2.ms realiza la reducción de la ecuación general de un elipsoide 
+a su forma canónica.
+
+El archivo ubicptet.ms.  
+Se calcula cuál es la expresión matemática:  de una composición dentro 
+	de un tetrahedro de altura 1. 
+
+El archivo formula2.ms y formula3.ms hay ciertas expresiones matemáticas necesarias
+para la visualización de una elipse y elipsoide, respectivamente.
+
+
+
+Nota :  Los archivos con extensión txt deben estar en el mismo directorio dónde
+	se ubica el archivo con extensión ms.
+
+
+
+

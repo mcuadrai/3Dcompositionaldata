@@ -1,5 +1,5 @@
 
-# Visualización de datos composicionales en dos y tres dimensiones.
+# Visualización de datos composicionales en dos y tres dimensiones
 
 ## Resumen
 

@@ -26,9 +26,23 @@ Este trabajo de visualización fue realizado en el año 1996, para proyecto de t
       La interpretación actual de lo visualizado en conclusiones lo hace el usuario o analista, en el futuro esto podría cambiar y ser reemplazado por una interpretación que pueda ser por un método matemático, incluso por Inteligencia Artificial.
 
 **Multi-visualización**
-     Hallar nuevas conclusiones en base al reconocimiento de patrones de imagen, cuando se tienen muchos triángulos equiláteros que usan subcomposiciones de un caso.  Podría reconocerse que alguna variable tiene más peso.  
+      Hallar nuevas conclusiones en base al reconocimiento de patrones de imagen, cuando se tienen muchos triángulos equiláteros que usan subcomposiciones de un caso.  Podría reconocerse que alguna variable tiene más peso.  
           
 **Tiempo**
-  ¿En qué casos será relevante para el analista, si las muestras obtenidas son en diferentes días ?
+   ¿En qué casos será relevante para el analista, si las muestras obtenidas son en diferentes días ?
+
+## Explicación de códigos
+      Los archivos originales del año 1996 están en los directorios: bin, data, doc y MapleV.
+Hoy en junio 2022, me doy cuenta que los códigos fuentes en lenguaje C de OpenGL no están y el directorio bin contiene los archivos binarios.
+
+   En el directorio  MapleSoft  se encuentran archivos que se migraron desde los archivos originales a la nueva versión de la aplicación MapleSoft 2020, sin embargo, hay cálculos que deben revisarse debido a nuevas funciones y ajustes que deben ser validados por persona con conocimientos matemáticos o estadísticos.
+
+## Crítica a lo publicado
+   A pesar que no están los códigos fuentes del lenguage C, además  de la deficiente explicación y poco estructurada del documento "Proyecto de Título Visualización de Datos Composicionales en 2 y 3 dimensiones.pdf", se logra entender un poco más con doc/Diapositivas.pdf y archivos en directorio /MapleV/anexo/.  En mi opinión, a pesar de los defectos anteriores, es posible que reuniendo los documentos existentes lograr el objetivo de crear una aplicación con nuevas tecnologías a la fecha del 2022.  
+
+
+
+
+
 
 > Written with [StackEdit](https://stackedit.io/).

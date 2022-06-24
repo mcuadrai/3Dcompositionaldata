@@ -1,6 +1,8 @@
 
 # Visualización de datos composicionales en dos y tres dimensiones
 
+  24-junio-2022
+
 ## Resumen
 
 Los datos composicionales se usan en diferentes áreas de la ciencia ya sea en geociencia, ciencia ambiental, biología o medicina.  Los datos composicionales son aquellos datos que suman 1 o 100%.   Así el caso de la composición de alimentos podemos encontrar muestras con proteínas, minerales o lípidos; en el caso de residuos sólidos hallaremos muestras de material orgánico, papel, metal, vidrio, plástico, madera, tierra y otros.
@@ -39,10 +41,6 @@ Hoy en junio 2022, me doy cuenta que los códigos fuentes en lenguaje C de OpenG
 
 ## Crítica a lo publicado
    A pesar que no están los códigos fuentes del lenguage C, además  de la deficiente explicación y poco estructurada del documento "Proyecto de Título Visualización de Datos Composicionales en 2 y 3 dimensiones.pdf", se logra entender un poco más con doc/Diapositivas.pdf y archivos en directorio /MapleV/anexo/.  En mi opinión, a pesar de los defectos anteriores, es posible que reuniendo los documentos existentes lograr el objetivo de crear una aplicación con nuevas tecnologías a la fecha del 2022.  
-
-
-
-
 
 
 > Written with [StackEdit](https://stackedit.io/).

@@ -17,7 +17,7 @@ Este trabajo de visualización fue realizado en el año 1996, para proyecto de t
        
 ## Desafíos
 ### Aplicación
->Realizar una aplicación con tecnología moderna (que inicie desde la lectura de datos a la visualización del triángulo y tetraedro)
+>Realizar una aplicación, plug-in, widget o complemento en cuadros de mandos o dashboard para visualizar los datos composicionales. Adicionalmente, usar aplicación o programa para cargar los datos.
 
 ### Investigación futura
 
@@ -40,7 +40,6 @@ Hoy en junio 2022, me doy cuenta que los códigos fuentes en lenguaje C de OpenG
    En el directorio  MapleSoft  se encuentran archivos que se migraron desde los archivos originales a la nueva versión de la aplicación MapleSoft 2020, sin embargo, hay cálculos que deben revisarse debido a nuevas funciones y ajustes que deben ser validados por persona con conocimientos matemáticos o estadísticos.
 
 ## Crítica a lo publicado
-   A pesar que no están los códigos fuentes del lenguage C, además  de la deficiente explicación y poco estructurada del documento "Proyecto de Título Visualización de Datos Composicionales en 2 y 3 dimensiones.pdf", se logra entender un poco más con doc/Diapositivas.pdf y archivos en directorio /MapleV/anexo/.  En mi opinión, a pesar de los defectos anteriores, es posible que reuniendo los documentos existentes lograr el objetivo de crear una aplicación con nuevas tecnologías a la fecha del 2022.  
-
+   A pesar que no están los códigos fuentes del lenguage C, además  de la deficiente explicación y poco estructurada del documento "Proyecto de Título Visualización de Datos Composicionales en 2 y 3 dimensiones.pdf", se logra entender un poco más con doc/Diapositivas.pdf y archivos en directorio /MapleV/anexo/.  En mi opinión, a pesar de los defectos anteriores, es posible que reuniendo los documentos existentes lograr el objetivo de crear una aplicaciónplug-in, widget o complemento con las herramientas y lenguajes de aplicación de la actualidad. (Al año 2022).  
 
 > Written with [StackEdit](https://stackedit.io/).
